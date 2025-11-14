@@ -139,8 +139,8 @@ class TaskProvider private constructor(
     class ProviderTooOldException(
             val provider: ProviderName,
             installedVersionCode: Long,
-            val installedVersionName: String
-    ): Exception("Package ${provider.packageName} has version $installedVersionName ($installedVersionCode), " +
+            val installedVersionName: String?
+    ): Exception("Package ${provider.packageName} has version ${installedVersionName ?: "unknown"} ($installedVersionCode), " +
             "required: ${provider.minVersionName} (${provider.minVersionCode})")
 
 }
